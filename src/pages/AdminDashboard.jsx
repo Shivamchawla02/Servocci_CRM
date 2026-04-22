@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../context/authContext';
+import { useAuth } from '../context/AuthContext';
 import { Outlet, useNavigate } from 'react-router-dom';
 import AdminSideBar from '../components/dashboard/AdminSideBar';
 import NavBar from '../components/dashboard/NavBar';

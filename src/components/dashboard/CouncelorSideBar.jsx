@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import QRCode from 'react-qr-code';
 import axios from 'axios';
-import { useAuth } from '../../context/authContext';
+import { useAuth } from '../../context/AuthContext';
 
 const CouncelorSideBar = ({ isOpen, toggleSidebar }) => {
 

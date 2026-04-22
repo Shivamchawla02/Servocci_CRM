@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../context/authContext';
+import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import axios from 'axios';

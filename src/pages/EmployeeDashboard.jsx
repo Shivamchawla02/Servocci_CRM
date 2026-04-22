@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import CouncelorSideBar from '../components/dashboard/CouncelorSideBar';
 import NavBar from '../components/dashboard/NavBar';
-import { useAuth } from '../context/authContext';
+import { useAuth } from '../context/AuthContext';
 
 const EmployeeDashboard = () => {
   const { user, loading } = useAuth();
