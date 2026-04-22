@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Set 1 - Dark Theme */
+    --primary-dark: #001b48;
+    --accent-orange: #ff4f00;
+    --accent-light-orange: #ff9d3d;
+    --deep-maroon: #430000;
+    --cool-teal: #2c6975;
+  
+    /* Set 2 - Light Theme */
+    --light-white: #ffffff;
+    --light-gold: #f7d088;
+    --light-yellow: #f9e7a6;
+    --pale-beige: #f9f7d9;
+  }
