@@ -13,17 +13,21 @@ export default function MainTagline() {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#070A12] text-white">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden 
+    bg-gradient-to-b from-white via-[#f8fafc] to-[#eef2ff] text-[#0f172a]">
 
       {/* ================= BACKGROUND SYSTEM ================= */}
 
       {/* GRID */}
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:100px_100px]" />
+      <div className="absolute inset-0 opacity-[0.04] 
+        bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),
+        linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] 
+        bg-[size:90px_90px]" />
 
       {/* GLOW LAYERS */}
-      <div className="absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#ff4f00]/15 blur-[220px] rounded-full" />
-        <div className="absolute bottom-[-30%] right-[-10%] w-[700px] h-[700px] bg-[#ff9d3d]/10 blur-[240px] rounded-full" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-orange-300/30 blur-[200px] rounded-full" />
+        <div className="absolute bottom-[-30%] right-[-10%] w-[600px] h-[600px] bg-indigo-300/20 blur-[220px] rounded-full" />
       </div>
 
       {/* ================= MAIN WRAPPER ================= */}
@@ -37,7 +41,7 @@ export default function MainTagline() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex px-4 py-2 rounded-full
-            bg-white/10 border border-white/20 backdrop-blur-xl text-sm"
+            bg-white/70 border border-gray-200 backdrop-blur-xl text-sm shadow-sm"
           >
             🚀 AI-Powered EdTech CRM Platform
           </motion.div>
@@ -49,10 +53,10 @@ export default function MainTagline() {
             transition={{ delay: 0.1 }}
             className="mt-6 text-5xl md:text-6xl font-bold leading-tight"
           >
-            We Help EdTech Teams
+            Smarter CRM for High-Performing
             <br />
-            <span className="bg-gradient-to-r from-[#ff4f00] via-[#ff9d3d] to-yellow-200 bg-clip-text text-transparent">
-              Increase Revenue by 38%
+            <span className="bg-gradient-to-r from-[#ff4f00] via-[#ff9d3d] to-yellow-400 bg-clip-text text-transparent">
+              EdTech Teams
             </span>
           </motion.h1>
 
@@ -61,7 +65,7 @@ export default function MainTagline() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-white/70 text-lg max-w-xl"
+            className="mt-6 text-gray-600 text-lg max-w-xl leading-relaxed"
           >
             Servocci CRM centralizes leads, automates counsellor workflows, and
             improves follow-up efficiency — driving predictable revenue growth
@@ -78,15 +82,16 @@ export default function MainTagline() {
             <button
               onClick={() => navigate("/login")}
               className="px-7 py-3 rounded-xl font-semibold
-              bg-[#ff4f00] hover:bg-[#ff9d3d] transition
+              bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d]
+              text-white hover:scale-105 transition
               shadow-lg shadow-[#ff4f00]/30"
             >
               Get Started
             </button>
 
             <button className="px-7 py-3 rounded-xl font-semibold
-              bg-white/10 border border-white/20 backdrop-blur-xl
-              hover:bg-white/20 transition">
+              bg-white/70 border border-gray-200 backdrop-blur-xl
+              hover:bg-white transition">
               View Demo
             </button>
           </motion.div>
@@ -100,13 +105,15 @@ export default function MainTagline() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + i * 0.1 }}
                 className="relative p-4 rounded-2xl
-                bg-white/5 border border-white/10 backdrop-blur-xl
-                hover:bg-white/10 transition overflow-hidden"
+                bg-white/60 border border-gray-200 backdrop-blur-xl
+                hover:shadow-lg transition overflow-hidden group"
               >
-                {/* subtle hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff4f00]/0 via-[#ff4f00]/10 to-[#ff4f00]/0 opacity-0 hover:opacity-100 transition" />
+                {/* glow hover */}
+                <div className="absolute inset-0 bg-gradient-to-r 
+                  from-[#ff4f00]/0 via-[#ff4f00]/10 to-transparent 
+                  opacity-0 group-hover:opacity-100 transition" />
 
-                <p className="text-xs text-white/60 relative z-10">{s.label}</p>
+                <p className="text-xs text-gray-500 relative z-10">{s.label}</p>
                 <p className="text-xl font-bold relative z-10">{s.value}</p>
               </motion.div>
             ))}
@@ -115,70 +122,120 @@ export default function MainTagline() {
         </div>
 
         {/* ================= RIGHT DASHBOARD ================= */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative"
-        >
+        {/* ================= RIGHT DASHBOARD ================= */}
+<motion.div
+  initial={{ opacity: 0, x: 40 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative"
+>
 
-          <div className="rounded-3xl
-            bg-black/30 border border-white/10 backdrop-blur-2xl
-            p-6 shadow-2xl">
+  <div className="rounded-3xl
+    bg-white/70 border border-gray-200 backdrop-blur-2xl
+    p-6 shadow-xl">
 
-            {/* HEADER */}
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-sm text-white/70">
-                Live Performance Overview
-              </h3>
-              <span className="text-xs px-3 py-1 rounded-full
-                bg-[#ff4f00]/20 text-[#ff9d3d]">
-                Real-time
-              </span>
-            </div>
+    {/* HEADER */}
+    <div className="flex justify-between items-center mb-6">
+      <h3 className="text-sm text-gray-500">
+        Live Performance Overview
+      </h3>
+      <span className="text-xs px-3 py-1 rounded-full
+        bg-orange-100 text-[#ff4f00] animate-pulse">
+        Real-time
+      </span>
+    </div>
 
-            {/* KPI STRIP */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-white/10">
-                <p className="text-xs text-white/60">Leads</p>
-                <p className="text-lg font-bold">128K</p>
-              </div>
-              <div className="p-3 rounded-xl bg-white/10">
-                <p className="text-xs text-white/60">Calls</p>
-                <p className="text-lg font-bold">89K</p>
-              </div>
-              <div className="p-3 rounded-xl bg-white/10">
-                <p className="text-xs text-white/60">Conv</p>
-                <p className="text-lg font-bold">38%</p>
-              </div>
-            </div>
+    {/* KPI STRIP */}
+    <div className="grid grid-cols-3 gap-3 mb-6">
+      {[
+        { label: "Leads", value: "128K" },
+        { label: "Calls", value: "89K" },
+        { label: "Conv", value: "38%", highlight: true },
+      ].map((item, i) => (
+        <div key={i} className="p-3 rounded-xl bg-white border border-gray-200 hover:shadow-sm transition">
+          <p className="text-xs text-gray-500">{item.label}</p>
+          <p className={`text-lg font-bold ${item.highlight ? "text-[#ff4f00]" : ""}`}>
+            {item.value}
+          </p>
+        </div>
+      ))}
+    </div>
 
-            {/* CHART */}
-            <div className="h-44 rounded-xl
-              bg-gradient-to-r from-[#ff4f00]/20 via-[#ff9d3d]/10 to-transparent" />
+    {/* CHART (ENHANCED FAKE GRAPH) */}
+    <div className="h-44 rounded-xl
+      bg-gradient-to-r from-orange-200 via-orange-100 to-transparent
+      relative overflow-hidden flex items-end gap-2 px-3">
 
-            {/* TABLE */}
-            <div className="mt-6 space-y-2">
-              <div className="h-5 bg-white/10 rounded" />
-              <div className="h-5 bg-white/10 rounded" />
-              <div className="h-5 bg-white/10 rounded" />
-            </div>
+      {[40, 60, 45, 80, 65, 90, 70].map((h, i) => (
+        <div
+          key={i}
+          className="w-full bg-[#ff4f00]/70 rounded-t-md transition-all duration-500"
+          style={{ height: `${h}%` }}
+        />
+      ))}
 
+      {/* shimmer */}
+      <div className="absolute inset-0 opacity-30 animate-pulse
+        bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent)]" />
+    </div>
+
+    {/* PROGRESS STATS */}
+    <div className="mt-6 space-y-3">
+      {[
+        { name: "Lead Conversion", value: 75 },
+        { name: "Follow-up Rate", value: 60 },
+      ].map((item, i) => (
+        <div key={i}>
+          <div className="flex justify-between text-xs text-gray-500 mb-1">
+            <span>{item.name}</span>
+            <span>{item.value}%</span>
           </div>
+          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d]"
+              style={{ width: `${item.value}%` }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
 
-          {/* TRUST BADGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="absolute -top-10 -left-10 px-4 py-3 rounded-2xl
-            bg-white/10 border border-white/20 backdrop-blur-xl"
-          >
-            <p className="text-xs text-white/60">Trusted by Institutions</p>
-            <p className="text-lg font-bold">240+</p>
-          </motion.div>
+    {/* ACTIVITY FEED */}
+    <div className="mt-6 space-y-3">
+      {[
+        "New lead assigned to Rahul",
+        "Call completed by Ankit",
+        "Lead converted successfully",
+      ].map((item, i) => (
+        <div key={i} className="flex items-center gap-3 text-sm text-gray-600">
+          <div className="w-2 h-2 bg-[#ff4f00] rounded-full animate-pulse" />
+          <p>{item}</p>
+        </div>
+      ))}
+    </div>
 
-        </motion.div>
+    {/* TABLE (SKELETON) */}
+    <div className="mt-6 space-y-2">
+      <div className="h-5 bg-gray-200 rounded" />
+      <div className="h-5 bg-gray-200 rounded" />
+      <div className="h-5 bg-gray-200 rounded" />
+    </div>
+
+  </div>
+
+  {/* TRUST BADGE */}
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.6 }}
+    className="absolute -top-10 -left-10 px-4 py-3 rounded-2xl
+    bg-white/80 border border-gray-200 backdrop-blur-xl shadow-md"
+  >
+    <p className="text-xs text-gray-500">Trusted by Institutions</p>
+    <p className="text-lg font-bold">240+</p>
+  </motion.div>
+
+</motion.div>
 
       </div>
     </div>

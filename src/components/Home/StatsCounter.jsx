@@ -34,27 +34,29 @@ export default function StatsCounter() {
   ];
 
   return (
-    <div className="relative w-full py-20 bg-[#070A12] text-white overflow-hidden">
+    <div className="relative w-full py-24 overflow-hidden bg-gradient-to-b from-white via-[#f8fafc] to-[#eef2ff] text-[#0f172a]">
 
-      {/* BACKGROUND (same system as your SaaS UI) */}
-      <div className="absolute inset-0 opacity-[0.05]
-        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),
-        linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-        bg-[size:100px_100px]" />
+      {/* SOFT GRID BACKGROUND */}
+      <div className="absolute inset-0 opacity-[0.04]
+        bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),
+        linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
+        bg-[size:80px_80px]" />
 
-      <div className="absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#ff4f00]/10 blur-[200px] rounded-full" />
+      {/* GLOW BLOBS */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-300/30 blur-[160px] rounded-full" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-300/20 blur-[160px] rounded-full" />
       </div>
 
-      {/* GRID */}
+      {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Trusted by Growing EdTech Teams
           </h2>
-          <p className="mt-4 text-white/60">
+          <p className="mt-4 text-gray-500 text-lg">
             Real-time performance metrics from live CRM usage
           </p>
         </div>
@@ -68,28 +70,36 @@ export default function StatsCounter() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative p-6 rounded-2xl text-center
-                bg-white/5 border border-white/10 backdrop-blur-xl
-                hover:bg-white/10 transition overflow-hidden"
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative p-6 rounded-2xl text-center overflow-hidden
+                backdrop-blur-xl bg-white/60 border border-white/40
+                shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+                hover:shadow-[0_20px_60px_rgba(255,79,0,0.15)]
+                transition duration-300"
               >
 
-                {/* glow hover */}
-                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition
-                  bg-gradient-to-r from-[#ff4f00]/0 via-[#ff4f00]/10 to-[#ff9d3d]/0" />
+                {/* GRADIENT GLOW HOVER */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300
+                  bg-gradient-to-r from-[#ff4f00]/10 via-[#ff9d3d]/10 to-transparent blur-xl" />
 
                 {/* NUMBER */}
-                <h3 className="text-3xl font-bold relative z-10">
+                <h3 className="text-3xl md:text-4xl font-bold relative z-10
+                  bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d]
+                  bg-clip-text text-transparent">
                   {count.toLocaleString()}{s.suffix}
                 </h3>
 
                 {/* LABEL */}
-                <p className="text-sm text-white/60 mt-2 relative z-10">
+                <p className="text-sm text-gray-600 mt-2 relative z-10">
                   {s.label}
                 </p>
+
+                {/* BORDER GLOW */}
+                <div className="absolute inset-0 rounded-2xl border border-transparent
+                  group-hover:border-orange-200 transition" />
 
               </motion.div>
             );

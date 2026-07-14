@@ -31,6 +31,7 @@ import DocumentUploadPublic from "./pages/DocumentUploadPublic.jsx";
 import BulkUpload from "./pages/BulkUpload.jsx";
 import AssignLeads from "./pages/AssignLeads.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import AdminSummaryV2 from "./components/dashboard/AdminSummaryV2.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -157,7 +158,7 @@ function App() {
             </PrivateRoutes>
           }
         >
-          <Route index element={<AdminSummary />} />
+          <Route index element={<AdminSummaryV2 />} />
 
           <Route path="departments" element={<DepartmentList />} />
           <Route path="departments/domestic" element={<DepartmentList defaultFilter="domestic" />} />

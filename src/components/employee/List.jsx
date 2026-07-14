@@ -335,7 +335,6 @@ const saveRemark = async (id) => {
       <tr>
         <th className="p-3">#</th>
         <th className="p-3">Full Name</th>
-        <th className="p-3">Father's Name</th>
        <th className="p-3">
   {userRole === "admin" ? "Assigned To" : "Parent Mobile"}
 </th>
@@ -354,7 +353,6 @@ const saveRemark = async (id) => {
           <tr key={emp._id} className="border-b hover:bg-[#f9f9f9]">
             <td className="p-3">{indexOfFirstEmployee + index + 1}</td>
             <td className="p-3 font-medium text-[#001b48]">{emp.fullName}</td>
-            <td className="p-3">{emp.fatherName || '—'}</td>
             <td className="p-3">
   {userRole === "admin" ? (
     <select
@@ -562,7 +560,6 @@ const saveRemark = async (id) => {
           </div>
         </div>
         <div className="text-sm text-gray-700 space-y-1">
-          <p><strong>Father's Name:</strong> {emp.fatherName || '—'}</p>
           <p><strong>Parent Mobile:</strong> {emp.parentMobile || '—'}</p>
           <p><strong>Phone:</strong> {emp.type === 'regular' ? emp.phoneMobile : emp.phone || 'N/A'}</p>
           {userRole === "admin" ? (

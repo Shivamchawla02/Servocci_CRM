@@ -28,17 +28,17 @@ export default function FAQSection() {
   ];
 
   return (
-    <div className="relative w-full py-28 bg-[#070A12] text-white overflow-hidden">
+    <div className="relative w-full py-28 bg-gradient-to-b from-white via-[#f8fafc] to-[#eef2ff] text-[#0f172a] overflow-hidden">
 
-      {/* BACKGROUND GRID */}
-      <div className="absolute inset-0 opacity-[0.05]
-        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),
-        linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+      {/* SOFT GRID */}
+      <div className="absolute inset-0 opacity-[0.04]
+        bg-[linear-gradient(to_right,#000000_1px,transparent_1px),
+        linear-gradient(to_bottom,#000000_1px,transparent_1px)]
         bg-[size:100px_100px]" />
 
-      {/* GLOW */}
+      {/* LIGHT GLOW */}
       <div className="absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#ff4f00]/10 blur-[200px] rounded-full" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-orange-200/40 blur-[180px] rounded-full" />
       </div>
 
       {/* HEADER */}
@@ -47,7 +47,7 @@ export default function FAQSection() {
           Frequently Asked Questions
         </h2>
 
-        <p className="mt-4 text-white/60 text-lg">
+        <p className="mt-4 text-gray-600 text-lg">
           Everything you need to know before getting started.
         </p>
       </div>
@@ -55,29 +55,31 @@ export default function FAQSection() {
       {/* MAIN GRID */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
 
-        {/* LEFT SIDE (QUESTION LIST) */}
-        <div className="space-y-3">
+        {/* LEFT SIDE */}
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
             <div
               key={i}
               onClick={() => setActive(i)}
-              className={`cursor-pointer p-4 rounded-xl border transition
-              ${active === i
-                ? "bg-[#ff4f00]/10 border-[#ff4f00]/40"
-                : "bg-white/5 border-white/10 hover:bg-white/10"
+              className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 backdrop-blur-xl
+              ${
+                active === i
+                  ? "bg-orange-50 border-orange-300 shadow-md"
+                  : "bg-white/70 border-gray-200 hover:bg-white hover:shadow-sm"
               }`}
             >
               <div className="flex justify-between items-center">
-                <p className="font-medium">{faq.q}</p>
-                <span className="text-[#ff9d3d] text-sm">
-                  {active === i ? "Active" : "View"}
+                <p className="font-semibold">{faq.q}</p>
+                <span className={`text-sm font-medium
+                  ${active === i ? "text-[#ff4f00]" : "text-gray-400"}`}>
+                  {active === i ? "Open" : "View"}
                 </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* RIGHT SIDE (ANSWER PANEL / CAROUSEL FEEL) */}
+        {/* RIGHT SIDE */}
         <div className="relative">
 
           <AnimatePresence mode="wait">
@@ -88,7 +90,7 @@ export default function FAQSection() {
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.4 }}
               className="p-8 rounded-3xl
-              bg-white/5 border border-white/10 backdrop-blur-2xl
+              bg-white/70 border border-gray-200 backdrop-blur-2xl
               shadow-xl"
             >
               {/* QUESTION */}
@@ -97,19 +99,20 @@ export default function FAQSection() {
               </h3>
 
               {/* ANSWER */}
-              <p className="text-white/70 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-lg">
                 {faqs[active].a}
               </p>
 
               {/* PROGRESS INDICATOR */}
-              <div className="flex gap-2 mt-6">
+              <div className="flex gap-2 mt-8">
                 {faqs.map((_, i) => (
                   <div
                     key={i}
-                    className={`h-1 rounded-full transition-all
-                    ${i === active
-                      ? "w-8 bg-[#ff4f00]"
-                      : "w-3 bg-white/20"
+                    className={`h-1 rounded-full transition-all duration-300
+                    ${
+                      i === active
+                        ? "w-8 bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d]"
+                        : "w-3 bg-gray-300"
                     }`}
                   />
                 ))}

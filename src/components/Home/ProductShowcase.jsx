@@ -26,20 +26,20 @@ export default function ProductShowcase() {
   ];
 
   return (
-    <div className="relative w-full py-28 bg-[#070A12] text-white overflow-hidden">
+    <div className="relative w-full py-28 bg-gradient-to-b from-white via-[#f8fafc] to-[#eef2ff] text-[#0f172a] overflow-hidden">
 
-      {/* ================= BACKGROUND (MATCH MAIN TAGLINE STYLE) ================= */}
+      {/* ================= BACKGROUND ================= */}
 
       {/* GRID */}
-      <div className="absolute inset-0 opacity-[0.05]
-        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),
-        linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-        bg-[size:100px_100px]" />
+      <div className="absolute inset-0 opacity-[0.4]
+        bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),
+        linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)]
+        bg-[size:90px_90px]" />
 
-      {/* GLOW LAYERS */}
+      {/* GLOW */}
       <div className="absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#ff4f00]/10 blur-[220px] rounded-full" />
-        <div className="absolute bottom-[-30%] right-[-10%] w-[700px] h-[700px] bg-[#ff9d3d]/10 blur-[240px] rounded-full" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-orange-300/30 blur-[180px] rounded-full" />
+        <div className="absolute bottom-[-30%] right-[-10%] w-[600px] h-[600px] bg-orange-200/40 blur-[200px] rounded-full" />
       </div>
 
       {/* ================= HEADER ================= */}
@@ -50,7 +50,7 @@ export default function ProductShowcase() {
           Not Just Demos
         </h2>
 
-        <p className="mt-5 text-white/70 text-lg">
+        <p className="mt-5 text-gray-600 text-lg">
           Every module in Servocci CRM is actively used by real sales teams to
           manage thousands of leads, calls, and conversions every day.
         </p>
@@ -68,19 +68,19 @@ export default function ProductShowcase() {
             transition={{ duration: 0.6, delay: i * 0.08 }}
             whileHover={{ y: -6, scale: 1.02 }}
             className="group relative rounded-3xl overflow-hidden
-            border border-white/10 bg-white/5 backdrop-blur-xl
-            hover:bg-white/10 transition shadow-xl"
+            border border-gray-200 bg-white/60 backdrop-blur-xl
+            hover:bg-white/80 transition shadow-lg hover:shadow-2xl"
           >
 
-            {/* hover glow overlay */}
+            {/* hover glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition
-              bg-gradient-to-r from-[#ff4f00]/0 via-[#ff4f00]/10 to-[#ff9d3d]/0" />
+              bg-gradient-to-r from-orange-200/0 via-orange-300/20 to-orange-200/0" />
 
-            {/* IMAGE WRAPPER (MORE PREMIUM FEEL) */}
+            {/* IMAGE */}
             <div className="relative overflow-hidden">
 
-              {/* subtle frame effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent z-10" />
+              {/* soft overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent z-10" />
 
               <img
                 src={item.img}
@@ -96,14 +96,14 @@ export default function ProductShowcase() {
                 {item.title}
               </h3>
 
-              <p className="text-white/60 mt-2 text-sm leading-relaxed">
+              <p className="text-gray-600 mt-2 text-sm leading-relaxed">
                 {item.desc}
               </p>
             </div>
 
-            {/* subtle bottom glow line */}
+            {/* bottom accent */}
             <div className="absolute bottom-0 left-0 right-0 h-[2px]
-              bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d] opacity-40" />
+              bg-gradient-to-r from-[#ff4f00] to-[#ff9d3d] opacity-60" />
 
           </motion.div>
         ))}

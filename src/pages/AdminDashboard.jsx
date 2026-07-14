@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Outlet, useNavigate } from 'react-router-dom';
 import AdminSideBar from '../components/dashboard/AdminSideBar';
-import NavBar from '../components/dashboard/Navbar';
+import AdminSidebarV2 from '../components/dashboard/AdminSideBarV2';
 
 const AdminDashboard = () => {
   const { user, loading } = useAuth();
@@ -24,14 +24,23 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="flex">
-      <AdminSideBar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex-1 bg-gray-100 min-h-screen">
-        <NavBar toggleSidebar={toggleSidebar} />
+  <div className="flex min-h-screen bg-[#F6F7FB]">
+
+    <AdminSidebarV2
+      isOpen={isSidebarOpen}
+      toggleSidebar={toggleSidebar}
+    />
+
+    <main className="flex-1 flex flex-col overflow-hidden">
+
+      <div className="flex-1 overflow-y-auto">
         <Outlet />
       </div>
-    </div>
-  );
+
+    </main>
+
+  </div>
+);
 };
 
 export default AdminDashboard;
